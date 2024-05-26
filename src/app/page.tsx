@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import CheckBox from "@/app/components/CheckBox";
 import Markdown from "react-markdown";
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
-import {vscDarkPlus} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import {vscDarkPlus} from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import {saveAs} from 'file-saver';
@@ -271,12 +271,11 @@ export default function Home() {
                                     const match = /language-(\w+)/.exec(className || '')
                                     return match ? (
                                         <SyntaxHighlighter
-                                            {...rest}
                                             PreTag="div"
                                             children={String(children).replace(/\n$/, '')}
                                             language={match[1]}
-                                            style={vscDarkPlus}
                                             wrapLongLines={true}
+                                            style={vscDarkPlus}
                                         />
                                     ) : (
                                         <code {...rest} className={className}>
