@@ -267,9 +267,9 @@ export default function Home() {
                             rehypePlugins={[rehypeRaw]}
                             components={{
                                 code(props) {
-                                    const {node, inline, className, children, ...rest} = props
+                                    const {node, className, children, ...rest} = props
                                     const match = /language-(\w+)/.exec(className || '')
-                                    return !inline && match ? (
+                                    return match ? (
                                         <SyntaxHighlighter
                                             {...rest}
                                             PreTag="div"
